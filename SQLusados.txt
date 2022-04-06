@@ -1,0 +1,14 @@
+Drop database panapo;
+create database panapo;
+INSERT INTO `panapo`.`profession` (`id`, `description`) VALUES ('1', 'docente');
+INSERT INTO `panapo`.`profession` (`id`, `description`) VALUES ('2', 'becario');
+
+INSERT INTO `panapo`.`rol` (`id`, `acronym`,`description`) VALUES ('1', 'DIR','Directivo');
+INSERT INTO `panapo`.`rol` (`id`, `acronym`,`description`)  VALUES ('2', 'CO','Coordinador');
+INSERT INTO `panapo`.`rol` (`id`, `acronym`,`description`)  VALUES ('3', 'RAPE','RAPE');
+INSERT INTO `panapo`.`rol` (`id`, `acronym`,`description`)  VALUES ('4', 'RD','RD');
+
+INSERT INTO `panapo`.`status` (`id`, `description`) VALUES ('1', 'Activo');
+INSERT INTO `panapo`.`status` (`id`, `description`) VALUES ('2', 'Inactivo');
+
+INSERT INTO `panapo`.`user` (`id`, `password`, `username`, `person_id`, `status_id`) VALUES ('1', '12345', '20203tn064@utez.edu.mx', '1', '1');

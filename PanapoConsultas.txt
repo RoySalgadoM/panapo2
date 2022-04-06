@@ -1,0 +1,332 @@
+Client
+http://localhost:8081/api/client/
+//Mensaje que devuelve
+{
+    "message": "OK",
+    "error": false,
+    "data": {
+        "id": 1,
+        "nameClient": "tu",
+        "company": "Utez",
+        "emailRepre": "asda@das",
+        "nameRepre": "dpadjp",
+        "phoneRepre": "2131",
+        "typeClient": {
+            "id": 1,
+            "description": "Externo"
+        }
+    },
+
+}
+
+//Crear un cliente
+{
+      //opcional// "id": 1,
+      "nameClient": "tu",
+      "company": "Utez",
+      "emailRepre": "asda@das",
+      "nameRepre": "dpadjp",
+      "phoneRepre": "2131",
+      "typeClient": {
+      //Obligatorio//    "id": 1,
+      //Opcional//    "description": "Externo"
+      }
+},
+
+// update cliente
+{   
+        "id": 3,
+        "nameClient": "tu",
+        "company": "Utesz",
+        "emailRepre": "asda@das",
+        "nameRepre": "dpadjp",
+        "phoneRepre": "2131",
+        "typeClient": {
+            //Obligatorio//    "id": 1,
+      //Opcional//    "description": "Externo"
+        }
+}
+
+Person
+http://localhost:8081/api/person/
+//Mensaje que vuelve
+{
+    "message": "OK",
+    "error": false,
+    "data": {
+        "id": 1,
+        "name": "Alan Yahir",
+        "lastName": "Valladares Borjes",
+        "email": "20203tn059@gmail.com",
+        "dateBirth": "2002-08-24",
+        "phone": "7773195078",
+        "profession": {
+            "id": 1,
+            "description": "Docente"
+        }
+    }
+}
+
+//Crear un Person
+{
+            "id": 2,
+            "name": "Alan Yahir",
+            "lastName": "Valladares Borjes",
+            "email": "20203tn59@gmail.com",
+            "dateBirth": "2002-08-24",
+            "phone": "7773195078",
+            "profession": {
+                "id": 2,
+                "description": "Docente"
+            }
+        }
+}
+//Update Person
+{
+            "name": "Alan Yahir",
+            "lastName": "Valladares Borjes",
+            "email": "20203tn060@gmail.com",
+            "dateBirth": "2002-08-24",
+            "phone": "7773195078",
+            "profession": {
+                "id": 2,
+                "description": "Docente"
+            }
+       }
+
+Report
+http://localhost:8081/api/project/
+//Mensaje que vuelve
+{
+    "message": "OK",
+    "error": false,
+    "data": [
+        {
+            "id": 1,
+            "name": "Admiom",
+            "description": "Asad",
+            "dateStart": "2022-02-12",
+            "dateEnd": "2022-12-12",
+            "cotizacion": "2000",
+            "months": "10",
+            "numberBeca": "5",
+            "acronym": "abc",
+            "priority": "1",
+            "teamProject": {},
+            "phases": {
+                "id": 1,
+                "description": "fase1",
+                "reports": []
+            },
+            "stages": {
+                "id": 1,
+                "description": "etapa1"
+            },
+            "client": {
+                "id": 1,
+                "nameClient": "tu",
+                "company": "Utez",
+                "emailRepre": "asda@das",
+                "nameRepre": "dpadjp",
+                "phoneRepre": "2131",
+                "typeClient": {
+                    "id": 1,
+                    "description": "Externo"
+                }
+            },
+            "statusProject": {
+                "id": 1,
+                "description": "estado1"
+            },
+            "project": null
+        },
+        {
+            "id": 2,
+            "name": "adsd",
+            "description": "21asd",
+            "dateStart": "212",
+            "dateEnd": "21",
+            "cotizacion": "222",
+            "months": "11",
+            "numberBeca": "1",
+            "acronym": "ada",
+            "priority": "1",
+            "teamProject": {},
+            "phases": {
+                "id": 1,
+                "description": "fase1",
+                "reports": []
+            },
+            "stages": {
+                "id": 1,
+                "description": "etapa1"
+            },
+            "client": {
+                "id": 1,
+                "nameClient": "tu",
+                "company": "Utez",
+                "emailRepre": "asda@das",
+                "nameRepre": "dpadjp",
+                "phoneRepre": "2131",
+                "typeClient": {
+                    "id": 1,
+                    "description": "Externo"
+                }
+            },
+            "statusProject": {
+                "id": 1,
+                "description": "estado1"
+            },
+            "project": {
+                "id": 1,
+                "name": "Admiom",
+                "description": "Asad",
+                "dateStart": "2022-02-12",
+                "dateEnd": "2022-12-12",
+                "cotizacion": "2000",
+                "months": "10",
+                "numberBeca": "5",
+                "acronym": "abc",
+                "priority": "1",
+                "teamProject": {},
+                "phases": {
+                    "id": 1,
+                    "description": "fase1",
+                    "reports": []
+                },
+                "stages": {
+                    "id": 1,
+                    "description": "etapa1"
+                },
+                "client": {
+                    "id": 1,
+                    "nameClient": "tu",
+                    "company": "Utez",
+                    "emailRepre": "asda@das",
+                    "nameRepre": "dpadjp",
+                    "phoneRepre": "2131",
+                    "typeClient": {
+                        "id": 1,
+                        "description": "Externo"
+                    }
+                },
+                "statusProject": {
+                    "id": 1,
+                    "description": "estado1"
+                },
+                "project": null
+            }
+        }
+    ]
+}
+
+//Crear proyecto
+{
+
+            "name": "Admiomd",
+            "description": "Asadd",
+            "dateStart": "2022-02-12",
+            "dateEnd": "2022-12-12",
+            "cotizacion": "2000",
+            "months": "10",
+            "numberBeca": "5",
+            "acronym": "adbc",
+            "priority": "1",
+            "team": {
+                "id": 1
+            },
+            "phases": {
+                "id": 1
+            },
+            "stages": {
+                "id": 1
+            },
+            "client": {
+                "id": 1
+            },
+            "statusProject": {
+                "id": 1
+            },
+            "project": null
+        }
+//Update project
+{
+            "id":1,
+            "name": "Admiomd",
+            "description": "Asadd",
+            "dateStart": "2022-02-12",
+            "dateEnd": "2022-12-12",
+            "cotizacion": "2000",
+            "months": "10",
+            "numberBeca": "5",
+            "acronym": "adc",
+            "priority": "1",
+            "team": {
+                "id": 1
+            },
+            "phases": {
+                "id": 1
+            },
+            "stages": {
+                "id": 1
+            },
+            "client": {
+                "id": 1
+            },
+            "statusProject": {
+                "id": 1
+            },
+            "project": null
+        }
+
+Report
+http://localhost:8081/api/user/
+//Mensaje que vuelve
+{
+    "message": "OK",
+    "error": false,
+    "data": [
+        {
+            "id": 5,
+            "password": "213d132",
+            "username": "20203tn060@gmail.com",
+            "code": null,
+            "person": {
+                "id": 4,
+                "name": "Alan Yahir",
+                "lastName": "Valladares Borjes",
+                "email": "20203tn060@gmail.com",
+                "dateBirth": "2002-08-24",
+                "phone": "7773195078",
+                "profession": {
+                    "id": 1,
+                    "description": "Docente"
+                }
+            },
+            "authorities": [],
+            "status": {
+                "id": 1,
+                "description": "Activo"
+            }
+        }
+    ]
+}
+
+//Crear user
+{
+            
+            "password": "213d132",
+            "codigo": null,
+            "person": {
+                "email": "20203tn060@gmail.com",
+            },
+            "rol": {
+                "id": 2,
+                "description": "Admin"
+            },
+            "status": {
+                "id": 1,
+                "description": "Activo"
+            }
+        }
+
