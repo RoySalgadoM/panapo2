@@ -25,11 +25,11 @@ public class ClientController {
 
     @PostMapping("/")
     public  ResponseEntity<Message> saveClient(@RequestBody ClientDTO clientDTO){
-       return  clientService.save(new Client(clientDTO.getName(),clientDTO.getSurname(),clientDTO.getSecondSurname(),clientDTO.getPhoneClient(),clientDTO.getEmailClient(),clientDTO.getCompany(),clientDTO.getEmailRepre(),clientDTO.getNameRepre(),clientDTO.getSurnameRepre(),clientDTO.getSecondSurnameRepre(),clientDTO.getPhoneRepre(),clientDTO.getTypeClient()));
+       return  clientService.save(new Client(clientDTO.getName(),clientDTO.getSurname(),clientDTO.getSecondSurname(),clientDTO.getPhoneClient(),clientDTO.getEmailClient(),clientDTO.getCompany(),clientDTO.getEmailRepre(),clientDTO.getNameRepre(),clientDTO.getSurnameRepre(),clientDTO.getSecondSurnameRepre(),clientDTO.getPhoneRepre(),clientDTO.getExtension(),clientDTO.getTypeClient()));
     }
 
     @PutMapping("/")
     public ResponseEntity<Message> update(@RequestBody ClientDTO clientDTO){
-        return clientService.update(new Client(clientDTO.getId(),clientDTO.getName(),clientDTO.getSurname(),clientDTO.getSecondSurname(),clientDTO.getPhoneClient(),clientDTO.getEmailClient(),clientDTO.getCompany(),clientDTO.getEmailRepre(),clientDTO.getNameRepre(),clientDTO.getSurnameRepre(),clientDTO.getSecondSurnameRepre(),clientDTO.getPhoneRepre(),clientDTO.getTypeClient()));
+        return clientService.update(new Client(clientDTO.getId(),clientDTO.getName(),clientDTO.getSurname(),clientDTO.getSecondSurname(),clientDTO.getPhoneClient(),clientDTO.getEmailClient(),clientDTO.getCompany(),clientDTO.getEmailRepre(),clientDTO.getNameRepre(),clientDTO.getSurnameRepre(),clientDTO.getSecondSurnameRepre(),clientDTO.getPhoneRepre(),clientDTO.getExtension(),clientDTO.getTypeClient()));
     }
 }

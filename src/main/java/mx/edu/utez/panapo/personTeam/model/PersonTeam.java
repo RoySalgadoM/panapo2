@@ -19,23 +19,23 @@ public class PersonTeam {
     @NonNull
     Person person;
     @ManyToOne
+    @JoinColumn(name = "project_id" )
+    private Project project;
+    @ManyToOne
     @JoinColumn(name = "rolProject_id", nullable = false)
     @NonNull
     RolProject rolProject;
-    @OneToMany(mappedBy = "statusProject")
-    @JsonIgnore
-    private List<Project> project;
 
     public PersonTeam() {
     }
 
-    public PersonTeam(Person person, RolProject rolProject, List<Project> project) {
+    public PersonTeam(Person person, RolProject rolProject, Project project) {
         this.person = person;
         this.rolProject = rolProject;
         this.project = project;
     }
 
-    public PersonTeam(long id,  Person person, RolProject rolProject, List<Project> project) {
+    public PersonTeam(long id,  Person person, RolProject rolProject, Project project) {
         this.id = id;
         this.person = person;
         this.rolProject = rolProject;
@@ -66,11 +66,11 @@ public class PersonTeam {
         this.rolProject = rolProject;
     }
 
-    public List<Project> getProject() {
+    public Project getProject() {
         return project;
     }
 
-    public void setProject(List<Project> team) {
+    public void setProject(Project team) {
         this.project = team;
     }
 }

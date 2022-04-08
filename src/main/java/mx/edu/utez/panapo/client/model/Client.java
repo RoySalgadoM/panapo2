@@ -27,6 +27,7 @@ public class Client {
     private String surnameRepre;
     private String secondSurnameRepre;
     private String phoneRepre;
+    private String extension;
     @ManyToOne
     @JoinColumn(name = "typeclient_id", nullable = false)
     @NonNull
@@ -38,7 +39,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(long id, String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre, @NonNull TypeClient typeClient) {
+    public Client(long id, String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre,String extension, @NonNull TypeClient typeClient) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -51,10 +52,11 @@ public class Client {
         this.surnameRepre = surnameRepre;
         this.secondSurnameRepre = secondSurnameRepre;
         this.phoneRepre = phoneRepre;
+        this.extension = extension;
         this.typeClient = typeClient;
     }
 
-    public Client(String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre, @NonNull TypeClient typeClient) {
+    public Client(String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre,String extension, @NonNull TypeClient typeClient) {
         this.name = name;
         this.surname = surname;
         this.secondSurname = secondSurname;
@@ -66,7 +68,16 @@ public class Client {
         this.surnameRepre = surnameRepre;
         this.secondSurnameRepre = secondSurnameRepre;
         this.phoneRepre = phoneRepre;
+        this.extension = extension;
         this.typeClient = typeClient;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 
     public long getId() {

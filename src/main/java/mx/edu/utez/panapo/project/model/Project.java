@@ -3,12 +3,10 @@ package mx.edu.utez.panapo.project.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import mx.edu.utez.panapo.StatusProject.StatusProject;
 import mx.edu.utez.panapo.client.model.Client;
-import mx.edu.utez.panapo.person.model.Person;
 import mx.edu.utez.panapo.personTeam.model.PersonTeam;
 import mx.edu.utez.panapo.phases.Phases;
 import mx.edu.utez.panapo.report.model.Report;
 import mx.edu.utez.panapo.stages.Stages;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,9 +30,9 @@ public class Project {
     private String acronym;
     @Column(nullable = true)
     private String priority;
-    @ManyToOne
-    @JoinColumn(name = "personTeam_id" )
-    private PersonTeam personTeam;
+    @OneToMany(mappedBy = "project")
+    @JsonIgnore
+    private List<PersonTeam> personTeam;
     @ManyToOne
     @JoinColumn(name = "phases_id")
     private Phases phases;
@@ -52,7 +50,7 @@ public class Project {
         private Project project;
     @OneToMany(mappedBy = "project")
     @JsonIgnore
-    private List<Report> personList;
+    private List<Report> reportList;
     @OneToMany(mappedBy = "project")
     @JsonIgnore
     private List<Project> projectList;
@@ -60,7 +58,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(String name, String description, String dateStart, String dateEnd, String cotizacion, String months, String numberBeca, String priceClient, String acronym, String priority, PersonTeam personTeam, Phases phases, Stages stages, Client client, StatusProject statusProject, Project project) {
+    public Project(String name, String description, String dateStart, String dateEnd, String cotizacion, String months, String numberBeca, String priceClient, String acronym, String priority, List<PersonTeam> personTeam, Phases phases, Stages stages, Client client, StatusProject statusProject, Project project) {
         this.name = name;
         this.description = description;
         this.dateStart = dateStart;
@@ -101,7 +99,7 @@ public class Project {
         this.statusProject = statusProject;
     }
 
-    public Project(long id, String name, String description, String dateStart, String dateEnd, String cotizacion, String months, String numberBeca, String priceClient, String acronym, String priority, PersonTeam personTeam, Phases phases, Stages stages, Client client, StatusProject statusProject, Project project) {
+    public Project(long id, String name, String description, String dateStart, String dateEnd, String cotizacion, String months, String numberBeca, String priceClient, String acronym, String priority, List<PersonTeam> personTeam, Phases phases, Stages stages, Client client, StatusProject statusProject, Project project) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -201,11 +199,11 @@ public class Project {
         this.priority = priority;
     }
 
-    public PersonTeam getTeam() {
+    public List<PersonTeam> getTeam() {
         return personTeam;
     }
 
-    public void setTeam(PersonTeam personTeam) {
+    public void setTeam(List<PersonTeam> personTeam) {
         this.personTeam = personTeam;
     }
 
@@ -257,11 +255,11 @@ public class Project {
         this.priceClient = priceClient;
     }
 
-    public PersonTeam getPersonTeam() {
+    public List<PersonTeam> getPersonTeam() {
         return personTeam;
     }
 
-    public void setPersonTeam(PersonTeam personTeam) {
+    public void setPersonTeam(List<PersonTeam> personTeam) {
         this.personTeam = personTeam;
     }
 }

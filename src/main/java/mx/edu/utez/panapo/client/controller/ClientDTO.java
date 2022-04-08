@@ -1,6 +1,7 @@
 package mx.edu.utez.panapo.client.controller;
 
 import mx.edu.utez.panapo.type_client.TypeClient;
+import org.springframework.lang.NonNull;
 
 public class ClientDTO {
     private  long id;
@@ -15,13 +16,15 @@ public class ClientDTO {
     private String surnameRepre;
     private String secondSurnameRepre;
     private String phoneRepre;
+    private String extension;
+
     private TypeClient typeClient;
 
 
     public ClientDTO() {
     }
 
-    public ClientDTO(long id, String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre, TypeClient typeClient) {
+    public ClientDTO(long id, String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre,String extension, @NonNull TypeClient typeClient) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -34,10 +37,11 @@ public class ClientDTO {
         this.surnameRepre = surnameRepre;
         this.secondSurnameRepre = secondSurnameRepre;
         this.phoneRepre = phoneRepre;
+        this.extension = extension;
         this.typeClient = typeClient;
     }
 
-    public ClientDTO(String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre, TypeClient typeClient) {
+    public ClientDTO(String name, String surname, String secondSurname, String phoneClient, String emailClient, String company, String emailRepre, String nameRepre, String surnameRepre, String secondSurnameRepre, String phoneRepre,String extension, @NonNull TypeClient typeClient) {
         this.name = name;
         this.surname = surname;
         this.secondSurname = secondSurname;
@@ -49,7 +53,16 @@ public class ClientDTO {
         this.surnameRepre = surnameRepre;
         this.secondSurnameRepre = secondSurnameRepre;
         this.phoneRepre = phoneRepre;
+        this.extension = extension;
         this.typeClient = typeClient;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 
     public String getEmailClient() {
