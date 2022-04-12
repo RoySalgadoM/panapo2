@@ -38,6 +38,11 @@ public class UserController {
     public  ResponseEntity<Message> saveUsersave(@RequestBody UserDTO userDTO){
         return  userService.save(new User(passwordEncoder.encode(userDTO.getPassword()),userDTO.getPerson(),userDTO.getAuthorities()));
     }
+
+    @PostMapping("/save")
+    public  ResponseEntity<Message> saveUsernamer(@RequestBody UserDTO userDTO){
+        return  userService.save2(new User(userDTO.getUsername(),userDTO.getAuthorities()));
+    }
     @PostMapping("/confir/")
     public  ResponseEntity<Message> sdasda(@RequestBody UserDTO userDTO){
         return  userService.savePassword(new User(passwordEncoder.encode(userDTO.getPassword()), userDTO.getCode()));

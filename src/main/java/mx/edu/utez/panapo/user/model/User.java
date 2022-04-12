@@ -80,6 +80,11 @@ public class User {
         this.id = id;
     }
 
+    public User(String username, Set<Rol> authorities) {
+        this.username = username;
+        this.authorities = authorities;
+    }
+
     public User(String password, Person person, Set<Rol> authorities) {
         this.password = password;
         this.person = person;
