@@ -131,7 +131,9 @@ public class UserService {
     public ResponseEntity<Message> deletebyid(long id){
         if( userRepository.existsById(id)){
             System.out.println(id);
+            User user1 = getById(id).get();
             userRepository.deleteById(id);
+            personRepository.deleteByEmail(user1.getUsername());
             return new ResponseEntity<>(new Message("Usuario eliminado", false,null), HttpStatus.OK);
         }
         return new ResponseEntity<>(new Message("El usuario no existe", true, null), HttpStatus.BAD_REQUEST);
