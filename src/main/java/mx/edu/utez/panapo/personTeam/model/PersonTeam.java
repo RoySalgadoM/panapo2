@@ -1,13 +1,11 @@
 package mx.edu.utez.panapo.personTeam.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import mx.edu.utez.panapo.person.model.Person;
 import mx.edu.utez.panapo.project.model.Project;
 import mx.edu.utez.panapo.rolProject.RolProject;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class PersonTeam {
@@ -17,14 +15,14 @@ public class PersonTeam {
     @ManyToOne
     @JoinColumn(name = "person_id", nullable = false)
     @NonNull
-    Person person;
+    private Person person;
     @ManyToOne
     @JoinColumn(name = "project_id" )
     private Project project;
     @ManyToOne
     @JoinColumn(name = "rolProject_id", nullable = false)
     @NonNull
-    RolProject rolProject;
+    private RolProject rolProject;
 
     public PersonTeam() {
     }
