@@ -76,7 +76,7 @@ public class UserService {
             return new ResponseEntity<>(new Message("OK", false, userRepository.saveAndFlush(user)),
                     HttpStatus.OK);
         }else {
-            return new ResponseEntity<>(new Message("La persona ya cuenta con un usuario", true, null), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Message("Hubo un error", true, null), HttpStatus.BAD_REQUEST);
         }
     }
 
