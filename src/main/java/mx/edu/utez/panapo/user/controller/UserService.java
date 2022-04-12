@@ -62,20 +62,22 @@ public class UserService {
     public ResponseEntity<Message> save2(User user){
         if(userRepository.existsByUsername(user.getUsername())) {
             User usertemp = getByUsername(user.getUsername()).get();
-            usertemp.setStatus(user.getStatus());
+            usertemp.setAuthorities(user.getAuthorities());
             userRepository.saveAndFlush(user);
-        }
-        if(userRepository.existsByPersonEmail(user.getPerson().getEmail())) {
+            return new ResponseEntity<>(new Message("OK", false, userRepository.saveAndFlush(user)),
+                    HttpStatus.OK);
+        }else if (personRepository.existsByEmail(user.getUsername())){
+            Person personTemp = getByPerson(user.getUsername()).get();
+            user.setPerson(personTemp);
+            user.setUsername(personTemp.getEmail());
+            user.setPassword(user.getUsername());
+            user.setAuthorities(user.getAuthorities());
+            user.setStatus(getByStatus(1).get());
+            return new ResponseEntity<>(new Message("OK", false, userRepository.saveAndFlush(user)),
+                    HttpStatus.OK);
+        }else {
             return new ResponseEntity<>(new Message("La persona ya cuenta con un usuario", true, null), HttpStatus.BAD_REQUEST);
         }
-        Person personTemp = getByPerson(user.getUsername()).get();
-        personTemp.setStatus(getByStatus(1).get());
-        personTemp = personRepository.saveAndFlush(personTemp);
-        user.setPerson(personTemp);
-        user.setUsername(personTemp.getEmail());
-        user.setStatus(getByStatus(1).get());
-        return new ResponseEntity<>(new Message("OK", false, userRepository.saveAndFlush(user)),
-                HttpStatus.OK);
     }
 
     @Transactional(rollbackFor = {SQLException.class}) // si encuenra un error lo vuelve a hacer
