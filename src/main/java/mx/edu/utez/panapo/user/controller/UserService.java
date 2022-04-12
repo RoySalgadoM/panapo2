@@ -63,7 +63,7 @@ public class UserService {
         if(userRepository.existsByUsername(user.getUsername())) {
             User usertemp = getByUsername(user.getUsername()).get();
             usertemp.setStatus(user.getStatus());
-            return new ResponseEntity<>(new Message("El usuario ya existe", true, userRepository.saveAndFlush(usertemp)), HttpStatus.BAD_REQUEST);
+            userRepository.saveAndFlush(user);
         }
         if(userRepository.existsByPersonEmail(user.getPerson().getEmail())) {
             return new ResponseEntity<>(new Message("La persona ya cuenta con un usuario", true, null), HttpStatus.BAD_REQUEST);
