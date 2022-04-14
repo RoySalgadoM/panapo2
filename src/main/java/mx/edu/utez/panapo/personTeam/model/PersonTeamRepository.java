@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface PersonTeamRepository extends JpaRepository<PersonTeam, Long> {
     boolean existsById(long id);
-    Optional<PersonTeam> findByPerson(long id);
+    Optional<PersonTeam> findByPerson_Id(long id);
 }

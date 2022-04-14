@@ -34,7 +34,7 @@ public class PersonTeamService {
 
     @Transactional(rollbackFor = {SQLException.class}) // si encuenra un error lo vuelve a hacer
     public ResponseEntity<Message> save(PersonTeam personTeam){
-        Optional<PersonTeam> existsPerson= personTeamRepository.findByPerson(personTeam.getPerson().getId());
+        Optional<PersonTeam> existsPerson= personTeamRepository.findByPerson_Id(personTeam.getPerson().getId());
         if(existsPerson.isPresent()){
             return new ResponseEntity<>(new Message("La persona ya existe", true, null), HttpStatus.BAD_REQUEST);
         }
