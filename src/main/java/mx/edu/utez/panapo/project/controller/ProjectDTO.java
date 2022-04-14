@@ -19,6 +19,25 @@ public class ProjectDTO {
     private String months;
     private String numberBeca;
     private String priceClient;
+    private int percentage;
+    private String daysDeviation;
+
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
+    }
+
+    public String getDaysDeviation() {
+        return daysDeviation;
+    }
+
+    public void setDaysDeviation(String daysDeviation) {
+        this.daysDeviation = daysDeviation;
+    }
+
     private String acronym;
     private String priority;
     private List<PersonTeam> personTeam;

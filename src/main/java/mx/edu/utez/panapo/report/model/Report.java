@@ -130,5 +130,19 @@ public class Report {
         this.date = date;
     }
 
+    public Project getProject() {
+        return project;
+    }
 
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public List<ReportPhases> getReportPhasesList() {
+        return reportPhasesList;
+    }
+
+    public void setReportPhasesList(List<ReportPhases> reportPhasesList) {
+        this.reportPhasesList = reportPhasesList;
+    }
 }

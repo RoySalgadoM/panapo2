@@ -2,6 +2,8 @@ package mx.edu.utez.panapo.report.controller;
 
 import mx.edu.utez.panapo.client.model.Client;
 import mx.edu.utez.panapo.person.model.Person;
+import mx.edu.utez.panapo.project.model.Project;
+import mx.edu.utez.panapo.project.model.ProjectRepository;
 import mx.edu.utez.panapo.report.model.Report;
 import mx.edu.utez.panapo.report.model.ReportRepository;
 import mx.edu.utez.panapo.utils.Message;
@@ -20,6 +22,8 @@ public class ReportService {
     @Autowired
     ReportRepository reportRepository;
 
+    @Autowired
+    ProjectRepository projectRepository;
     @Transactional(readOnly = true)
     public ResponseEntity<Message> findAll(){
         return  new ResponseEntity<>(new Message("OK",false,reportRepository.findAll()), HttpStatus.OK);
@@ -37,7 +41,9 @@ public class ReportService {
     public ResponseEntity<Message> save(Report report){
         Optional<Report> existsReport = reportRepository.findByDate(report.getDate());
         if(existsReport.isPresent()){
-            return new ResponseEntity<>(new Message("El cliente ya existe", true, null), HttpStatus.BAD_REQUEST);
+            Optional<Project>  project = projectRepository.findById(report.getProject().getId());
+
+            return new ResponseEntity<>(new Message("El Reporte ya existe", true, null), HttpStatus.BAD_REQUEST);
         }
         Report savedReport  = reportRepository.saveAndFlush(report);
         return new ResponseEntity<>(new Message("Reporte registrada correctamente", false, savedReport), HttpStatus.OK);

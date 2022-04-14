@@ -1,5 +1,6 @@
 package mx.edu.utez.panapo.personTeam.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import mx.edu.utez.panapo.person.model.Person;
 import mx.edu.utez.panapo.project.model.Project;
 import mx.edu.utez.panapo.rolProject.RolProject;
@@ -18,6 +19,7 @@ public class PersonTeam {
     private Person person;
     @ManyToOne
     @JoinColumn(name = "project_id" )
+    @JsonIgnore
     private Project project;
     @ManyToOne
     @JoinColumn(name = "rolProject_id", nullable = false)

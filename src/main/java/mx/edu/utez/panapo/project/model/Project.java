@@ -26,6 +26,8 @@ public class Project {
     private String months;
     private String numberBeca;
     private String priceClient;
+    private int percentage;
+    private String daysDeviation;
     @Column(nullable = true)
     private String acronym;
     @Column(nullable = true)
@@ -261,5 +263,37 @@ public class Project {
 
     public void setPersonTeam(List<PersonTeam> personTeam) {
         this.personTeam = personTeam;
+    }
+
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
+    }
+
+    public String getDaysDeviation() {
+        return daysDeviation;
+    }
+
+    public void setDaysDeviation(String daysDeviation) {
+        this.daysDeviation = daysDeviation;
+    }
+
+    public List<Report> getReportList() {
+        return reportList;
+    }
+
+    public void setReportList(List<Report> reportList) {
+        this.reportList = reportList;
+    }
+
+    public List<Project> getProjectList() {
+        return projectList;
+    }
+
+    public void setProjectList(List<Project> projectList) {
+        this.projectList = projectList;
     }
 }
