@@ -32,11 +32,11 @@ public class ReportController {
 
     @PostMapping("/")
     public  ResponseEntity<Message> saveClient(@RequestBody ReportDTO reportDTO){
-        return  reportService.save(new Report(reportDTO.getCost(),reportDTO.getDate(),reportDTO.getDaysDeviation(),reportDTO.getPhasePlanned(),reportDTO.getPhasePlanned(),reportDTO.getPhasePlanned(),reportDTO.getStageReal(),reportDTO.getPercentage(),reportDTO.getProject()));
+        return  reportService.save(new Report(reportDTO.getPhasePlanned(),reportDTO.getPhaseReal(),reportDTO.getStagePlanned(),reportDTO.getStageReal(),reportDTO.getCost(),reportDTO.getDaysDeviation(),reportDTO.getDate(),reportDTO.getPercentage(),reportDTO.getProject()));
     }
 
     @PutMapping("/")
     public ResponseEntity<Message> update(@RequestBody ReportDTO reportDTO){
-        return reportService.update(new Report(reportDTO.getId(),reportDTO.getCost(),reportDTO.getDate(),reportDTO.getDaysDeviation(),reportDTO.getPhasePlanned(),reportDTO.getPhasePlanned(),reportDTO.getPhasePlanned(),reportDTO.getStageReal(),reportDTO.getPercentage(),reportDTO.getProject()));
+        return reportService.update(new Report(reportDTO.getId(),reportDTO.getPhasePlanned(),reportDTO.getPhaseReal(),reportDTO.getStagePlanned(),reportDTO.getStageReal(),reportDTO.getCost(),reportDTO.getDaysDeviation(),reportDTO.getDate(),reportDTO.getPercentage(),reportDTO.getProject()));
     }
 }

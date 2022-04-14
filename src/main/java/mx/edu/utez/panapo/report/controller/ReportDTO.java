@@ -44,6 +44,7 @@ public class ReportDTO {
         this.project = project;
     }
 
+
     public long getId() {
         return id;
     }
@@ -123,6 +124,4 @@ public class ReportDTO {
     public void setProject(Project project) {
         this.project = project;
     }
-
-
 }
