@@ -32,6 +32,13 @@ public class PersonTeamController {
 
     @PutMapping("/")
     public ResponseEntity<Message> update(@RequestBody  PersonTeamDTO personTeamDTO){
-        return  personTeamService.save(new PersonTeam(personTeamDTO.getId(),personTeamDTO.getPerson(),personTeamDTO.getRolProject(),personTeamDTO.getProject()));
+        return  personTeamService.update(new PersonTeam(personTeamDTO.getId(),personTeamDTO.getPerson(),personTeamDTO.getRolProject(),personTeamDTO.getProject()));
     }
+
+
+    @DeleteMapping("/{id}")
+    public  ResponseEntity<Message> deleteById(@PathVariable("id") long id){
+        return  personTeamService.deletebyid(id);
+    }
+
 }

@@ -3,6 +3,7 @@ package mx.edu.utez.panapo.personTeam.controller;
 
 import mx.edu.utez.panapo.personTeam.model.PersonTeam;
 import mx.edu.utez.panapo.personTeam.model.PersonTeamRepository;
+import mx.edu.utez.panapo.user.model.User;
 import mx.edu.utez.panapo.utils.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,4 +47,21 @@ public class PersonTeamService {
         }
         return new ResponseEntity<>(new Message("El Persona no existe", true, null), HttpStatus.BAD_REQUEST);
     }
+
+    @Transactional(rollbackFor = {SQLException.class})
+    public ResponseEntity<Message> deletebyid(long id){
+        if(personTeamRepository.existsByProject_Id(id)){
+            System.out.println(id);
+            personTeamRepository.deleteByProject_Id(id);
+            return new ResponseEntity<>(new Message("Persona eliminado", false,null), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(new Message("El Persona no existe", true, null), HttpStatus.BAD_REQUEST);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<PersonTeam> getById(long id){
+        return personTeamRepository.findByProject(id);
+    }
+
+
 }
