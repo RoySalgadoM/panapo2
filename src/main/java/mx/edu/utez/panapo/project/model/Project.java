@@ -101,6 +101,12 @@ public class Project {
         this.statusProject = statusProject;
     }
 
+    public Project(long id, String priority, StatusProject statusProject) {
+        this.id = id;
+        this.priority = priority;
+        this.statusProject = statusProject;
+    }
+
     public Project(long id, String name, String description, String dateStart, String dateEnd, String cotizacion, String months, String numberBeca, String priceClient, String acronym, String priority, List<PersonTeam> personTeam, Phases phases, Stages stages, Client client, StatusProject statusProject, Project project) {
         this.id = id;
         this.name = name;

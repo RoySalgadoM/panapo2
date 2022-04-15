@@ -35,6 +35,11 @@ public class ProjectController {
         return projectService.update(new Project(projectDTO.getId(),projectDTO.getName(),projectDTO.getDescription(),projectDTO.getDateStart(),projectDTO.getDateEnd(),projectDTO.getCotizacion(),projectDTO.getMonths(),projectDTO.getNumberBeca(),projectDTO.getPriceClient(),projectDTO.getAcronym(),projectDTO.getPriority(),projectDTO.getPersonTeam(),projectDTO.getPhases(), projectDTO.getStages(), projectDTO.getClient(), projectDTO.getStatusProject(), projectDTO.getProject()));
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<Message> update2(@RequestBody ProjectDTO projectDTO){
+        return projectService.update2(new Project(projectDTO.getId(),projectDTO.getPriority(),projectDTO.getStatusProject()));
+    }
+
     @PutMapping("/prospetos")
     public ResponseEntity<Message> updateProspestos(@RequestBody ProjectDTO projectDTO){
         return  projectService.save2(new Project(projectDTO.getId(),projectDTO.getName(),projectDTO.getDescription(),projectDTO.getCotizacion(),projectDTO.getMonths(),projectDTO.getNumberBeca(),projectDTO.getPriceClient(),projectDTO.getClient(),projectDTO.getStatusProject()));
