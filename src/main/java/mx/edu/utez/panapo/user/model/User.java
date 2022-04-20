@@ -51,7 +51,12 @@ public class User {
         this.authorities = authorities;
     }
 
-    public User(long id, String password,Person person, Status status, Set<Rol> authorities) {
+    public User(long id, Set<Rol> authorities) {
+        this.id = id;
+        this.authorities = authorities;
+    }
+
+    public User(long id, String password, Person person, Status status, Set<Rol> authorities) {
         this.id = id;
         this.password = password;
         this.person = person;

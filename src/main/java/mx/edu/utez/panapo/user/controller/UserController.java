@@ -73,6 +73,11 @@ public class UserController {
         return userService.updatePassword(new User(userDTO.getId(),passwordEncoder.encode(userDTO.getPassword())));
     }
 
+    @PutMapping("/rol/")
+    public ResponseEntity<Message> updateRol( @RequestBody UserDTO userDTO){
+        return userService.updateRol(new User(userDTO.getId(), userDTO.getAuthorities()));
+    }
+
     @DeleteMapping("/{id}")
     public  ResponseEntity<Message> deleteById(@PathVariable("id") long id){
         return  userService.deletebyid(id);
