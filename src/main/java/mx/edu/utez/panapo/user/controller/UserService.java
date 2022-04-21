@@ -119,6 +119,17 @@ public class UserService {
         return new ResponseEntity<>(new Message("El Usuario no existe", true, null), HttpStatus.BAD_REQUEST);
     }
 
+    @Transactional(rollbackFor = {SQLException.class}) // si encuenra un error lo vuelve a hacer
+    public ResponseEntity<Message> updateestado(User user){
+        if(userRepository.existsById(user.getId())){
+            User user1 =  getById(user.getId()).get();
+            user1.setStatus(user.getStatus());
+            return new ResponseEntity<>(new Message("OK", false, userRepository.saveAndFlush(user1)), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(new Message("El Usuario no existe", true, null), HttpStatus.BAD_REQUEST);
+    }
+
 
     @Transactional(rollbackFor = {SQLException.class}) // si encuenra un error lo vuelve a hacer
     public ResponseEntity<Message> savePassword(User user){

@@ -73,6 +73,11 @@ public class UserController {
         return userService.updatePassword(new User(userDTO.getId(),passwordEncoder.encode(userDTO.getPassword())));
     }
 
+    @PutMapping("/estado/")
+    public ResponseEntity<Message> updatestado( @RequestBody UserDTO userDTO){
+        return userService.updateestado(new User(userDTO.getId(),userDTO.getStatus()));
+    }
+
     @PutMapping("/rol/")
     public ResponseEntity<Message> updateRol( @RequestBody UserDTO userDTO){
         return userService.updateRol(new User(userDTO.getId(), userDTO.getAuthorities()));

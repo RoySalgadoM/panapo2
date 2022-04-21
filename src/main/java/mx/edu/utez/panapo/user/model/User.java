@@ -51,6 +51,11 @@ public class User {
         this.authorities = authorities;
     }
 
+    public User(long id, Status status) {
+        this.id = id;
+        this.status = status;
+    }
+
     public User(long id, Set<Rol> authorities) {
         this.id = id;
         this.authorities = authorities;
