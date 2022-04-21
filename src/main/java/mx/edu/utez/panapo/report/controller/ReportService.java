@@ -52,10 +52,7 @@ public class ReportService {
 
     @Transactional(rollbackFor = {SQLException.class}) // si encuenra un error lo vuelve a hacer
     public ResponseEntity<Message> save(Report report){
-        Optional<Report> existsReport = reportRepository.findByDate(report.getDate());
-        if(existsReport.isPresent()){
-            return new ResponseEntity<>(new Message("El Reporte ya existe", true, null), HttpStatus.BAD_REQUEST);
-        }
+
         Project project = getById(report.getProject().getId()).get();
         project.setPercentage(report.getPercentage());
         project.setDaysDeviation(report.getDaysDeviation());

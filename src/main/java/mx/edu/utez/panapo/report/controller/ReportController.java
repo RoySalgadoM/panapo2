@@ -31,7 +31,7 @@ public class ReportController {
     }
 
     @PostMapping("/")
-    public  ResponseEntity<Message> saveClient(@RequestBody ReportDTO reportDTO){
+    public  ResponseEntity<Message> saveReport(@RequestBody ReportDTO reportDTO){
         return  reportService.save(new Report(reportDTO.getPhasePlanned(),reportDTO.getPhaseReal(),reportDTO.getStagePlanned(),reportDTO.getStageReal(),reportDTO.getCost(),reportDTO.getDaysDeviation(),reportDTO.getDate(),reportDTO.getPercentage(),reportDTO.getProject()));
     }
 
